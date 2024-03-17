@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="single-vinyl-container">
+        <div class="single-container">
+            <div>
+                <img class="single_vinyl-nomPhotoAlbum" src="../img/{{ asset(vinyl.nameAlbum) }}"
+                     alt="erreur de l'image">
+            </div>
+            <div class="single-line"><span class="single-span single-span-group">Groupe : </span><span
+                        class="single-val-group"> {{ vinyl.title }}</span></div>
+            <div class="single-line"><span class="single-span single-span-album">Album : </span><span
+                        class="single-val-album"> {{ vinyl.album }}</span></div>
+            <div class="single-line"><span class="single-span single-span-album">Morceaux : </span></div>
+            <div class="cat-list">
+                {% for song in vinyl.songList %}
+                    <div class="single-cat scale">- {{ song }}</div>
+                {% endfor %}
+            </div>
+            <div class="single-line cat-box"><span class="single-span single-span-album">Catégories : </span>
+                <div class="cat-list">
+                    {% for cat in vinyl.categories %}
+                        <div class="single-cat">- {{ cat.name }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="single_vinyl-price"><span class="single-span single-span-cat">Prix : </span><span
+                        class="single-val-price"> €{{ vinyl.price }}</span></div>
+        </div>
+        {% if is_granted("ROLE_USER") and not app.user.vinyls.contains(vinyl) %}
+            <a href="{{ path('app_basket_add', {'id' : vinyl.getId() }) }}" class="btn-basket-add">Ajouter au panier</a>
+        {% endif %}
+        {% if is_granted("ROLE_USER") and app.user.vinyls.contains(vinyl) %}
+            <div class="btn-basket-add">Vous possédez déjà cet article</div>
+        {% endif %}
+    </div>
+
+{% endblock %}

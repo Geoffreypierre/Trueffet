@@ -1,0 +1,35 @@
+{% extends 'base.html.twig'  %}
+
+{% block title %}
+    <title>TRUEFFET</title>
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}
+{% block body %}
+    <p class="vinyl-list-title">Liste des vinyls</p>
+        {{ form_start(form, { attr: { 'class': 'searchbar' } }) }}
+        {{ form_widget(form.q, { attr: { 'placeholder': 'Rechercher un vinyl', 'class':'form_f' } }) }}
+        {% if searched %}
+            <a id="cancel-research" href="{{ path('app_home') }}"></a>
+        {% endif %}
+    <input type="submit" id="saf" value="chercher">
+    {{ form_end(form) }}
+<div class="grid-container">
+        {% for vinyl in listeVinyl %}
+            <div class="vinyl-container">
+                <a href="{{ path('app_vinyl', {'id' : vinyl.getId()}) }}">
+                    {% if vinyl.isCollector %}
+                        <img class="vinyl-nomPhotoAlbum premium" src="{{ asset("img/" ~ vinyl.nameAlbum) }}" alt="erreur de l'image">
+                    {% else %}
+                        <img class="vinyl-nomPhotoAlbum" src="{{ asset("img/" ~ vinyl.nameAlbum) }}" alt="erreur de l'image">
+                    {% endif %}
+                    <p class="vinyl-title"> {{ vinyl.title }}</p>
+                    <p class="vinyl-title"> {{ vinyl.album }}</p>
+                    <p class="vinyl-price"> €{{ vinyl.price }}</p>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+-
+{% endblock %}

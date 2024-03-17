@@ -1,0 +1,116 @@
+@font-face {
+    font-family: comfortaa;
+    src: url('../font/comfortaa/Comfortaa-Regular.ttf');
+}
+
+.nb-vinyl-basket {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(85, 255, 184);
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    position: absolute;
+    top: 0;
+    left: -8px;
+}
+
+.basket-title {
+    text-align: center;
+    padding: 60px 0;
+    font-family: Comfortaa;
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.basket-container {
+    width: 70%;
+    margin: 80px auto;
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    text-align: center;
+    background-color: #F8EEFF;
+}
+
+.single-vinyl-basket-container {
+    margin: 50px auto;
+    width: 50%;
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 10px;
+    background-color: white;
+    font-family: Comfortaa;
+}
+
+.btn-basket-add {
+    font-family: Comfortaa;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 30px;
+    margin: 40px auto;
+    opacity: 60;
+    color: white;
+    font-size: 15px;
+    font-weight: bolder;
+    background: linear-gradient(0deg, rgba(0, 255, 163, 0.6), rgba(0, 255, 163, 0.6));
+    box-shadow: 1px 5px 10px rgba(0, 255, 163, 0.48);
+}
+
+.single-vinyl-basket-title {
+    padding: 20px 0;
+    font-weight: bolder;
+}
+
+.single-vinyl-basket-price {
+    padding: 20px 0;
+    font-weight: bolder;
+    font-size: 25px;
+}
+
+.bin-remove-vinyl {
+    width: 15%;
+    margin-left: 85%;
+    position: absolute;
+    right: 5px;
+    bottom: 10px;
+}
+
+.relative {
+    position: relative;
+}
+
+.total {
+    font-family: Comfortaa;
+    font-weight: bolder;
+    font-size: 25px;
+    width: 100%;
+    border-top: solid #b9b5b5 1px;
+    padding: 30px 0;
+    margin: auto;
+    background-color: white;
+}
+
+.basket-any-article {
+    font-family: Comfortaa;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.div-payment {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.payment {
+    opacity: 60;
+    color: white;
+    font-size: 25px;
+    font-weight: bolder;
+    background: linear-gradient(0deg, rgba(0, 255, 163, 0.6), rgba(0, 255, 163, 0.6));
+    box-shadow: 1px 5px 10px rgba(0, 255, 163, 0.48);
+    padding: 20px 40px;
+    border-radius: 10px;
+    font-family: Comfortaa;
+}

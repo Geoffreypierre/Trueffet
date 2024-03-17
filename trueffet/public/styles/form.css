@@ -1,0 +1,135 @@
+@font-face {
+    font-family: comfortaa;
+    src: url('../font/comfortaa/Comfortaa-Regular.ttf');
+}
+
+.form {
+    border: none;
+    box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    padding: 40px;
+    margin: 50px auto;
+    width: 50%;
+    border-radius: 10px;
+    font-family: Comfortaa;
+}
+
+.form-title {
+    font-size: 25px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+fieldset {
+    border: none;
+    text-align: center;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+.input-label {
+    margin: 10px 0;
+}
+
+.input-label:nth-child(1) {
+    margin-top: 20px;
+}
+
+.input {
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px auto;
+    border-color: black;
+    font-family: Comfortaa;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.label {
+    padding: 5px;
+    margin-top: 15px
+}
+
+.insc-link-div {
+    margin-top: 30px;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+.insc-link {
+    color: #C7AAE3;
+}
+
+.btn-connexion, .btn-inscription {
+    font-family: Comfortaa;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 30px;
+    margin: 40px auto;
+    opacity: 60;
+    color: white;
+    font-size: 15px;
+    font-weight: bolder;
+    background: linear-gradient(0deg, rgba(0, 255, 163, 0.6), rgba(0, 255, 163, 0.6));
+    box-shadow: 1px 5px 10px rgba(0, 255, 163, 0.48);
+}
+
+#user_fichierPhotoProfil {
+    border: solid 2px black;
+}
+
+.password-container {
+    position: relative;
+}
+
+#toggle-eye {
+    height: 30px;
+    aspect-ratio: 1;
+    position: absolute;
+    top: 50%;
+    margin-left: -40px;
+    transform: translateY(-50%);
+}
+
+.search {
+    text-align: right;
+    margin-right: 5%;
+}
+
+.searchbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#search_q {
+    padding: 5px 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: solid 2px #C7AAE3;
+    font-family: Comfortaa;
+}
+
+#search_q:focus-visible {
+    outline: none;
+    font-family: Comfortaa;
+}
+
+#saf {
+    padding: 5px 10px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: solid 2px #C7AAE3;
+    background-color: #C7AAE3;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: 'comfortaa';
+}
+
+

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <script type="text/javascript" src="{{ asset("js/dynamicProfile.js") }}" defer></script>
+    <div class="user-profile">Profil de
+        {% if user.premium %}
+            <span class="premium-font">{{ user.login }}</span>
+        {% else %}
+            <span>{{ user.login }}</span>
+        {% endif %}
+    </div>
+    <div class="single-user-container">
+        <div class="user-nomPhotoAlbum-container">
+            <img class="single_user-nomPhotoAlbum" src="{{ asset("img/utilisateurs/uploads/" ~ user.nameProfilImage) }}"
+                 alt="erreur de l'image">
+        </div>
+        <div class="single-container user">
+            {{ form_start(form, {'attr': {'class': 'info-user-form', 'method': 'POST',  'action': path('app_user_profile_edit', {'id': user.id})}}) }}
+            <div class="single-container-title">Informations</div>
+            <div class="single-line edit-div"><span
+                        class="single-val-group">{{ form_row(form.login, {'label': 'Login : '}) }}</span></div>
+            <div class="single-line edit-div"><span
+                        class="single-val-group">{{ form_row(form.name, {'label': 'Nom : ', 'attr': {'class': 'single-val'}}) }}</span>
+            </div>
+            <div class="single-line edit-div"><span
+                        class="single-val-group">{{ form_row(form.firstName, {'label': 'Prénom : ', 'attr': {'class': 'single-val'}}) }}</span>
+            </div>
+            <div class="single-line edit-div"><span
+                        class="single-val-group">{{ form_row(form.emailAdress, {'label': 'Adresse mail : ', 'attr': {'class': 'single-val'}}) }}</span>
+            </div>
+            <div class="single-line edit-div fpp hidden"><span
+                        class="single-val-group">{{ form_row(form.fichierPhotoProfil, {'label': 'Photo de profil : ', 'attr': {'class': 'single-val'}}) }}</span>
+            </div>
+            <div class="btn-container">
+                {{ form_widget(form.modificationProfil, {'label': 'Enregistrer','attr': {'id': 'btn-edit-profile', 'class': 'hidden btn-edit-profile'}}) }}
+                {{ form_end(form) }}
+                <a id="btn-edit" class="btn-edit">Modifier votre profil</a>
+            </div>
+            {% if user.vinyls|length > 0 %}
+            <div class="single-line"><span class="single-span single-span-album">Collection : </span></div>
+            {% endif %}
+            <div class="vinyls-list">
+                {% for vinyl in user.vinyls %}
+                    <img class="single_vinyl-nomPhotoAlbum" src="{{ asset("img/" ~ vinyl.nameAlbum) }}"
+                         alt="erreur de l'image">
+                {% endfor %}
+            </div>
+            {% if is_granted('ROLE_USER') and not user.premium %}
+            <div class="div-premium"><a href="{{ path('premiumCheckout') }}">Devenez Premium</a></div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

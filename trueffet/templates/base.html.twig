@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    {% block title %}
+        <title></title>
+    {% endblock %}
+
+    {% block javascripts %}
+    {% endblock %}
+    <meta charset="utf-8">
+    <link rel="icon" href="{{ asset("img/ico/T.ico") }}">
+    <link rel="stylesheet" type="text/css" href={{ asset("styles/style.css") }}>
+    <link rel="stylesheet" type="text/css" href={{ asset("styles/messageFlash.css") }}>
+    <link rel="stylesheet" type="text/css" href={{ asset("styles/form.css") }}>
+    <link rel="stylesheet" type="text/css" href={{ asset("styles/basket.css") }}>
+    <script type="text/javascript" src="{{ asset("js/fetchAPI.js") }}" defer></script>
+</head>
+<body>
+<header>
+    <div class="header">
+        <a href="{{ path('app_home') }}"><span class="main-title">Trueffet</span></a>
+        <nav>
+            <a href="{{ path('app_home') }}" class="link">Accueil</a>
+            <div class="a a_genre">
+                <div id="genre" class="genre">
+                    <span>Genre </span>
+                    <img id="arrow-down" class="arrow-down" src="{{ asset('img/svg/arrow-down.svg') }}" alt="">
+                </div>
+                <div id="genre-cats" class="genre_cats">
+                    <div class="categories-container">
+                        {% for cat in listeCategories %}
+                            <div class="categories-single">
+                                <a href="{{ path('app_category_vinyls', {'id' : cat.getId() }) }}" class="link"><p class="category-price"> {{ cat.name }}</p></a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% if is_granted("ROLE_USER") or is_granted("ROLE_ADMIN") %}
+                {% if app.user.premium %}
+                    <a href="{{ path('app_collector') }}" class="link">Collectors</a>
+                {% endif %}
+            {% endif %}
+            {% if is_granted("ROLE_USER") %}
+                <form method="post" action="{{ path('app_deconnexion') }}">
+                    <button class="btn-deconnexion">
+                        <img class="profile-img" src=" {{ asset('img/svg/logout.svg') }}" alt="">
+                    </button>
+                </form>
+                <a href="{{ path('app_user_profile_edit', {'id' : app.user.getId()}) }}">
+                    {% if app.user.premium %}
+                    <img class="single_user-nomPhotoAlbum-navbar premium" src="{{ asset("img/utilisateurs/uploads/" ~ app.user.nameProfilImage) }}" alt="erreur de l'image">
+                    {% else %}
+                        <img class="single_user-nomPhotoAlbum-navbar" src="{{ asset("img/utilisateurs/uploads/" ~ app.user.nameProfilImage) }}" alt="erreur de l'image">
+                    {% endif %}
+                </a>
+                <a href="{{ path('app_basket_index') }}" class="a_basket">
+                    <div class="nb-vinyl-basket" id="basketCountDiv"></div>
+                    <img class="profile-img" src=" {{ asset('img/svg/basket.svg') }}" alt="">
+                </a>
+            {% else %}
+                <a href="{{ path('app_connexion') }}" class="my-account">Mon compte</a>
+            {% endif %}
+        </nav>
+    </div>
+</header>
+<div class="flashes-container">
+    {% for message in app.flashes('success') %}
+        <span class="flashes flashes-success">{{ message }}</span>
+    {% endfor %}
+    {% for message in app.flashes('error') %}
+        <span class="flashes flashes-error">{{ message }}</span>
+    {% endfor %}
+    {% for message in app.flashes('info') %}
+        <span class="flashes flashes-info">{{ message }}</span>
+    {% endfor %}
+    {% for message in app.flashes('warning') %}
+        <span class="flashes flashes-warning">{{ message }}</span>
+    {% endfor %}
+
+</div>
+{% block body %}{% endblock %}
+</body>
+
+<script>
+
+</script>
+
+</html>

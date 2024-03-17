@@ -1,0 +1,89 @@
+@font-face {
+    font-family: comfortaa;
+    src: url('../font/comfortaa/Comfortaa-Regular.ttf');
+}
+
+
+.flashes-container {
+    font-weight: 700;
+    text-align: center;
+    position: fixed;
+    height: 120px;
+    width: 400px;
+    top: 80px;
+    right: 80px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    animation: slide 4s ease-in-out forwards;
+    z-index: 1000;
+}
+
+.flashes {
+    font-weight: bolder;
+    font-size: 20px;
+    padding: 20px 40px;
+    color: white;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateY(-600px);
+    }
+
+    10% {
+        transform: translateY(0px);
+    }
+
+    90% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(-600px);
+        display: none;
+    }
+}
+
+.flashes-error {
+    background-color: rgb(253, 85, 85);
+    border-radius: 10px;
+    border: none;
+    font-family: Comfortaa;
+    text-align: center;
+}
+
+.flashes-success {
+    background-color: #43ff90;
+    border: none;
+    border-radius: 10px;
+    font-family: Comfortaa;
+    text-align: center;
+}
+
+.flashes-error {
+    background-color: rgb(253, 85, 85);
+    border-radius: 10px;
+    border: none;
+    font-family: Comfortaa;
+    text-align: center;
+}
+
+.flashes-info {
+    background-color: #60bcf5;
+    border: none;
+    border-radius: 10px;
+    font-family: Comfortaa;
+    text-align: center;
+}
+
+.flashes-warning {
+    background-color: #f6ff73;
+    border: none;
+    border-radius: 10px;
+    font-family: Comfortaa;
+    text-align: center;
+}

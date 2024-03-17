@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    <title>Inscription</title>
+{% endblock %}
+
+{% block body %}
+    <main>
+        {{ form_start(form, {'attr': {'class': 'inscription-form form'}}) }}
+        <fieldset>
+            <div class="form-title">Inscription</div>
+            <div class="input-container">
+            <!-- Affichage du label "Login" -->
+                {{ form_label(form.login) }}
+                <!-- Affichage de l'input du login -->
+                {{ form_widget(form.login, { 'attr': {'class': 'input'} }) }}
+
+                <!-- Affichage de label du nom -->
+                {{ form_label(form.name, 'Nom') }}
+                <!-- Affichage de l'input du nom -->
+                {{ form_widget(form.name, { 'attr': {'class': 'input'} }) }}
+
+                <!-- Affichage de label du prénom -->
+                {{ form_label(form.firstName, 'Prénom') }}
+                <!-- Affichage de l'input du prénom -->
+                {{ form_widget(form.firstName, { 'attr': {'class': 'input'} }) }}
+
+                <!-- Affichage du label "Mot de passe" -->
+                {{ form_label(form.plainPassword, null, {
+                    'label': 'Mot de passe',
+                }, {'attr': {'class': 'label'}}) }}
+                <!-- Affichage de l'input du mot de passe -->
+                {{ form_widget(form.plainPassword, { 'attr': {'class': 'input'} }) }}
+                <!-- Affichage du label "Adresse mail" -->
+                {{ form_label(form.emailAdress, 'Adresse mail') }}
+                <!-- Affichage de l'input de l'adresse email -->
+                {{ form_widget(form.emailAdress, { 'attr': {'class': 'input'} }) }}
+                <!-- Affichage du label "Photo de profil" -->
+                {{ form_label(form.fichierPhotoProfil) }}
+                <!-- Affichage de l'input de la photo de profil (required : '', car non obligatoire...) -->
+                {{ form_widget(form.fichierPhotoProfil, {'required' : '', 'attr' : {'class': 'input', 'accept' : 'image/png, image/jpeg'}}) }}
+            <!-- Affichage du bouton d'envoi, contenant le texte (label) "S'inscrire" -->
+            {{ form_widget(form.inscription, {'label': 'S\'inscrire', 'attr': {'class': 'btn-inscription'}}) }}
+            </div>
+        </fieldset>
+        <div class="insc-link-div">Vous avez déjà un compte ?
+            <a href="{{ path('app_connexion') }}" class="insc-link"> Connectez-vous </a>
+        </div>
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </main>
+{%  endblock %}

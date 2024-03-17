@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="basket-container">
+        <div class="basket-title">Mon Panier</div>
+        {% if dataPanier|length > 0 %}
+            <div class="vinyl-basket-container">
+            {% for element in dataPanier %}
+                <div class="single-vinyl-basket-container">
+                    <div class="single-vinyl-basket-title"> {{ element.vinyl.title }}</div>
+                    <img class="vinyl-nomPhotoAlbum" src="{{ asset("img/" ~ element.vinyl.nameAlbum) }}"
+                         alt="erreur de l'image">
+                    <div class="single-vinyl-basket-title"> {{ element.vinyl.album }}</div>
+                    <div class="single-vinyl-basket-price"> {{ element.vinyl.price }}€</div>
+                    <div class="relative"><a href="{{ path('app_basket_delete', {'id' : element.vinyl.getId()}) }}">
+                            <img class="bin-remove-vinyl" src="{{ asset("img/svg/bin.svg") }}" alt=""></a>
+                    </div>
+                </div>
+            {% endfor %}
+                {% if dataPanier|length > 1 %}
+                <div class="relative"><a href="{{ path('app_basket_delete_all') }}">
+                        <img class="bin-remove-vinyl" src="{{ asset("img/svg/red-bin.svg") }}" alt=""></a>
+                </div>
+                {% endif %}
+            </div>
+        {% else %}
+            <div class="basket-any-article">Aucun article pour le moment</div>
+        {% endif %}
+        <div class="total">Total : {{ total }}€</div>
+    </div>
+    <div class="div-payment">
+        <a href="{{ path('app_basket_payment') }}" class="payment">Payer</a>
+    </div>
+{% endblock %}

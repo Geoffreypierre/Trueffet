@@ -1,0 +1,30 @@
+
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+<script type="text/javascript" src="{{ asset("js/loginEye.js") }}" defer></script>
+{% endblock %}
+
+{% block body %}
+        <form action="{{path('app_connexion')}}" method="post" class="form form-connexion">
+            <fieldset>
+                <div class="form-title">Connexion</div>
+                <div class="input-container">
+                    <label class="input-label" for="login">Login</label>
+                    <input class="input" id="login" type="text" name="_username" required/>
+
+                    <label class="input-label" for="password">Mot de passe</label>
+                    <div class="password-container">
+                        <input class="input" id="current_password" type="password" name="_password" required/>
+                        <img id="toggle-eye" class="opened_eye" src="{{ asset('img/ico/opened_eye.png') }}">
+                    </div>
+                </div>
+                <button type="submit" class="btn-connexion">Se connecter</button>
+            </fieldset>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            <div class="insc-link-div">Vous n'avez pas de compte ? Inscrivez vous en cliquant
+                <a href="{{ path('app_inscription') }}" class="insc-link">Ici</a>
+            </div>
+        </form>
+
+{% endblock %}
