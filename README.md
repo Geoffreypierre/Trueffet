@@ -32,7 +32,7 @@ Trueffet est une plateforme web innovante permettant d’**acheter en ligne** et
 
 1. Clonez le dépôt :
    ```bash
-   git clone https://github.com/votre-utilisateur/trueffet.git
+   git clone https://github.com/Geoffreypierre/trueffet.git
    cd trueffet
    #Installez les dépendances PHP
    composer install
