@@ -13,6 +13,11 @@ Trueffet est une plateforme web innovante permettant d’**acheter en ligne** et
 - 👤 Authentification et espace utilisateur
 ---
 
+## Images
+![desktop](https://github.com/user-attachments/assets/9ea0e57f-e609-4241-8826-eb7ab028640c)
+![mobile](https://github.com/user-attachments/assets/8d384744-b425-4375-b743-c6e797854bed)
+---
+
 ## 🛠️ Technologies utilisées
 
 - **Symfony 6** – Framework PHP backend
